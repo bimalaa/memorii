@@ -22,7 +22,6 @@ if ($result->num_rows > 0) {
     $user_name = "Guest";
 }
 
-
 $delete_success = false;
 
 // Add Event
@@ -77,7 +76,7 @@ if (isset($_POST['logout'])) {
     // Clear the user cookie and destroy the session
     setcookie('user_id', '', time() - 3600, '/'); // Expire the cookie
     session_destroy();
-    header("Location: login.php");
+    header("Location: index.php");
     exit();
 }
 ?>
@@ -89,170 +88,204 @@ if (isset($_POST['logout'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memori - Event Reminder</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #8B0000;
-            color: white;
-        }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #8B0000;
+    color: white;
+}
 
-        header {
-            background-color: #610000;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-        }
+header {
+    background-color: #610000;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #610000;
-            padding: 10px 20px;
-        }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #610000;
+    padding: 10px 20px;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
 
-        nav a:hover {
-            text-decoration: underline;
-        }
+nav a:hover {
+    text-decoration: underline;
+}
 
-        .container {
-            display: flex;
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #610000;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-        }
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #610000;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
 
-        .calendar-container {
-            flex: 2;
-            background-color: #B22222;
-            padding: 20px;
-            border-radius: 5px;
-        }
+.calendar-container {
+    flex: 2;
+    background-color: #B22222;
+    padding: 20px;
+    border-radius: 5px;
+}
 
-        .event-form-container {
-            flex: 1;
-            margin-left: 20px;
-            background-color: #610000;
-            padding: 20px;
-            border-radius: 5px;
-        }
+.event-form-container {
+    flex: 1;
+    margin-left: 20px;
+    background-color: #610000;
+    padding: 20px;
+    border-radius: 5px;
+}
 
-        .calendar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
-        .calendar-header select {
-            background-color: #610000;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-right: 10px;
-        }
+.calendar-header select {
+    background-color: #610000;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
 
-        .calendar {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
-            color: white;
-        }
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    color: white;
+}
 
-        .calendar div {
-            background-color: #610000;
-            padding: 10px;
-            text-align: center;
-            border-radius: 5px;
-        }
+.calendar div {
+    background-color: #610000;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
 
-        .calendar div.header {
-            font-weight: bold;
-        }
+.calendar div.header {
+    font-weight: bold;
+}
 
-        .calendar div.selected {
-            background-color: #8B0000;
-            color: white;
-        }
+.calendar div.selected {
+    background-color: #8B0000;
+    color: white;
+}
 
-        form input, form button {
-            padding: 10px;
-            margin: 10px 0;
-            width: 100%;
-            border: none;
-            border-radius: 5px;
-        }
+form input {
+    padding: 8px 15px; /* Reduced padding */
+    margin: 10px 10px; /* Reduced margin */
+    width: 80%; /* Reduced width */
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
 
-        form button {
-            background-color: #B22222;
-            color: white;
-            cursor: pointer;
-        }
+form button {
+    padding: 8px;
+    margin: 10px 0;
+    width: 80%; /* Reduced width */
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
 
-        .message {
-            color: #FFD700;
-            text-align: center;
-        }
+form button {
+    background-color: #B22222;
+    color: white;
+    cursor: pointer;
+}
 
-        .event-list {
-            margin-top: 20px;
-        }
+.message {
+    color: #FFD700;
+    text-align: center;
+}
 
-        .event-item {
-            background-color: #B22222;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.event-list {
+    margin-top: 20px;
+}
 
-        .event-item button {
-            background-color: #610000;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+.event-item {
+    background-color: #B22222;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping if the content is too long */
+}
 
-        #alertBox {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #FFD700;
-            color: #610000;
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        }
+.event-name {
+    color: yellow;
+    padding: 5px 10px;
+    flex: 1;
+    min-width: 0; /* Allow the name to shrink */
+}
 
-        #alertBox button {
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #610000;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+.event-item form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.event-item form input[type="text"],
+.event-item form input[type="date"] {
+    margin-right: 10px;
+    width: 150px; /* Decrease width */
+    padding: 5px;
+    font-size: 14px;
+}
+
+.event-item form button {
+    padding: 5px 10px;
+    background-color:white;
+    color:black;
+    font-size: 14px;
+    margin:10px;
+    width: auto; /* Adjust the button width */
+}
+
+#alertBox {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFD700;
+    color: #610000;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+#alertBox button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #610000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
     </style>
 </head>
 <body>
@@ -263,11 +296,11 @@ if (isset($_POST['logout'])) {
         <a href="#">Home</a>
         <a href="#">Contact Us</a>
         <span>Welcome, <?php echo htmlspecialchars($user_name); ?>!</span>
-        <form method="post" action="" style="display: inline;">
-        <button type="submit" name="logout" style="background-color: #610000; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">
-            Logout
-        </button>
-    </form>
+        <form method="post" action="" style="display:flex;">
+            <button type="submit" name="logout" style="background-color: #610000; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">
+                Logout
+            </button>
+        </form>
         <a href="register.php">Login/Signup</a>
     </nav>
 
@@ -328,13 +361,14 @@ if (isset($_POST['logout'])) {
                     while ($row = $result->fetch_assoc()) {
                         $event_id = $row['id'];
                         echo "<div class='event-item' id='event-$event_id'>";
-                        echo "<span onclick='editEvent($event_id)'>" . $row['event_name'] . " - " . $row['event_date'] . "</span>";
+                        echo "<span class='event-name'>" . $row['event_name'] . " - " . $row['event_date'] . "</span>";
                         echo "<form method='post' action='home.php' id='edit-form-$event_id' style='display:none;'>";
                         echo "<input type='hidden' name='event_id' value='" . $row['id'] . "'>";
                         echo "<input type='text' name='event_name' value='" . $row['event_name'] . "' required>";
                         echo "<input type='date' name='event_date' value='" . $row['event_date'] . "' required>";
                         echo "<button type='submit' name='edit_event'>Save Changes</button>";
                         echo "</form>";
+                        echo "<button type='button' onclick='editEvent($event_id)'>Edit</button>"; // Edit button
                         echo "<form method='post' action='home.php' style='display:inline;'>";
                         echo "<input type='hidden' name='event_id' value='" . $row['id'] . "'>";
                         echo "<button type='submit' name='delete_event'>Delete</button>";
@@ -475,8 +509,15 @@ if (isset($_POST['logout'])) {
         });
 
         function editEvent(eventId) {
+            // Hide all edit forms and show the selected one
             document.querySelectorAll('.event-item form').forEach(form => form.style.display = 'none');
             document.getElementById('edit-form-' + eventId).style.display = 'block';
+
+            // Hide the Edit button for the selected event
+            const editButton = document.querySelector(`#event-${eventId} button[onclick="editEvent(${eventId})"]`);
+            if (editButton) {
+                editButton.style.display = 'none';
+            }
         }
     </script>
 </body>
