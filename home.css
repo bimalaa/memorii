@@ -1,0 +1,197 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #8B0000;
+    color: white;
+}
+
+header {
+    background-color: #610000;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #610000;
+    padding: 10px 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #610000;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.calendar-container {
+    flex: 2;
+    background-color: #B22222;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.event-form-container {
+    flex: 1;
+    margin-left: 20px;
+    background-color: #610000;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header select {
+    background-color: #610000;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    color: white;
+}
+
+.calendar div {
+    background-color: #610000;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.calendar div.header {
+    font-weight: bold;
+}
+
+.calendar div.selected {
+    background-color: #8B0000;
+    color: white;
+}
+
+form input {
+    padding: 8px 15px; /* Reduced padding */
+    margin: 10px 10px; /* Reduced margin */
+    width: 80%; /* Reduced width */
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+form button {
+    padding: 8px;
+    margin: 10px 0;
+    width: 80%; /* Reduced width */
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+form button {
+    background-color: #B22222;
+    color: white;
+    cursor: pointer;
+}
+
+.message {
+    color:rgb(255, 255, 255);
+    text-align: center;
+}
+
+.event-list {
+    margin-top: 20px;
+}
+
+.event-item {
+    background-color: #B22222;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping if the content is too long */
+}
+
+.event-name {
+    color: white;
+    padding: 10px 10px;
+    flex: 1;
+    min-width: 0; /* Allow the name to shrink */
+}
+
+.event-item form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.event-item form input[type="text"],
+.event-item form input[type="date"] {
+    margin-right: 10px;
+    width: 150px; /* Decrease width */
+    padding: 5px;
+    font-size: 14px;
+}
+
+.event-item form button {
+    padding: 5px 10px;
+    background-color:white;
+    color:black;
+    font-size: 14px;
+    margin:10px;
+    width: auto; /* Adjust the button width */
+}
+
+#alertBox {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:rgb(255, 255, 255);
+    color: #610000;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+#alertBox button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #610000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
