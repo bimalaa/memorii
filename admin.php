@@ -15,10 +15,11 @@ $admin_id = $_SESSION['admin_id'];
 // Add new admin
 if (isset($_POST['add_admin'])) {
     $admin_name = $_POST['admin_name'];
+    $admin_username = $_POST['admin_username'];
     $admin_email = $_POST['admin_email'];
-    $admin_password = password_hash($_POST['admin_password'], PASSWORD_BCRYPT);
+    $admin_password = md5($_POST['admin_password']);
 
-    $sql = "INSERT INTO admins (name, email, password) VALUES ('$admin_name', '$admin_email', '$admin_password')";
+    $sql = "INSERT INTO admins (name, username, email, password) VALUES ('$admin_name', '$admin_username', '$admin_email', '$admin_password')";
     if ($conn->query($sql) === TRUE) {
         $message = "Admin added successfully!";
     } else {
@@ -87,13 +88,18 @@ if (isset($_POST['logout'])) {
         <?php } ?>
 
         <?php if (isset($_GET['action']) && $_GET['action'] === 'add_admin') { ?>
+            <div class="modal" id="addAdminModal">
+        <div class="modal-content">
             <h1>Add Admin</h1>
             <form method="post" action="">
                 <input type="text" name="admin_name" placeholder="Admin Name" required>
+                <input type="text" name="admin_username" placeholder="Admin Username" required>
                 <input type="email" name="admin_email" placeholder="Admin Email" required>
                 <input type="password" name="admin_password" placeholder="Admin Password" required>
                 <button type="submit" name="add_admin">Add Admin</button>
             </form>
+        </div>
+    </div>
         <?php } else { ?>
             <h1>Users</h1>
             <table>

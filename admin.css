@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #8B0000;
+    color: white;
+}
+
+.sidebar {
+    background-color: #610000;
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 10px;
+    background-color: #8B0000;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.sidebar ul li a:hover {
+    background-color: #FF6347;
+}
+
+.content {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #610000;
+    color: white;
+}
+
+table th,
+table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #B22222;
+}
+
+table th {
+    background-color: #B22222;
+}
+
+a {
+    color: #FF6347;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+form button {
+    background-color: transparent;
+    color: red;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.modal {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #610000;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    padding: 20px;
+}
+
+.modal-content span {
+    align-self: flex-end;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+}
+
+.modal-content form input,
+.modal-content form button {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.modal-content form button {
+    background-color: #B22222;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.modal-content form button:hover {
+    background-color: #FF6347;
+}
