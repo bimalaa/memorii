@@ -113,17 +113,14 @@ form button {
     padding: 20px;
 }
 
-.modal-content span {
-    align-self: flex-end;
-    cursor: pointer;
-    font-size: 20px;
-    color: white;
+.modal-content form input{
+    width: 100%;
+    margin: 10px;
+    padding:10px 10px 20px 20px;
 }
-
-.modal-content form input,
 .modal-content form button {
     width: 100%;
-    margin: 10px 0;
+    margin: 10px;
 }
 
 .modal-content form button {
