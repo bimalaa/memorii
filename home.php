@@ -27,10 +27,11 @@ $delete_success = false;
 // Add Event
 if (isset($_POST['add_event'])) {
     $event_name = $_POST['event_name'];
+    $event_details = $_POST['event_details'];
     $event_date = $_POST['event_date'];
 
     // Insert event with the user_id
-    $sql = "INSERT INTO events (event_name, event_date, user_id) VALUES ('$event_name', '$event_date', $user_id)";
+    $sql = "INSERT INTO events (event_name, event_details, event_date, user_id) VALUES ('$event_name', '$event_details', '$event_date', $user_id)";
     if ($conn->query($sql) === TRUE) {
         header("Location: home.php");
         exit();
@@ -136,7 +137,8 @@ if (isset($_POST['logout'])) {
 
         <div class="event-form-container">
             <form class="event-form" method="post" action="home.php">
-                <input type="text" style="width:87%;" name="event_name" placeholder="Event Name" autocomplete="off">
+                <input type="text" style="width:87%;" name="event_name" placeholder="Event Name" autocomplete="off"><br>
+                <input type="text" style="width:87%;" name="event_details" placeholder="Event Details" autocomplete="off">
                 <input type="hidden" id="event_date" name="event_date">
                 <button style="width: 100%;" type="submit" name="add_event">Add Event</button>
             </form>
@@ -162,19 +164,21 @@ if (isset($_POST['logout'])) {
                     while ($row = $result->fetch_assoc()) {
                         $event_id = $row['id'];
                         echo "<div class='event-item' id='event-$event_id'>";
-                        echo "<span class='event-name'>" . $row['event_name'] . " - " . $row['event_date'] . "</span>";
+                        echo "<span class='event-name'>" . $row['event_name'] . " - " . $row['event_details'] . " - " . $row['event_date'] . "</span>";
+                        // echo "<span class='event-name'>" . $row['event_details'] . "</span>";
+                        echo "</div>";
                         echo "<form method='post' action='home.php' id='edit-form-$event_id' style='display:none;'>";
                         echo "<input type='hidden' name='event_id' value='" . $row['id'] . "'>";
-                        echo "<input type='text' name='event_name' value='" . $row['event_name'] . "' required>";
-                        echo "<input type='date' name='event_date' value='" . $row['event_date'] . "' required>";
+                        echo "<input style='margin-right: 10px;' type='text' name='event_name' value='" . $row['event_name'] . "' required>";
+                        echo "<input style='margin-right: 10px;' type='date' name='event_date' value='" . $row['event_date'] . "' required>";
                         echo "<button onclick='return confirm(`Are you sure you want to save changes?`);' type='submit' name='edit_event'>Save Changes</button>";
                         echo "</form>";
-                        echo "<button type='button' onclick='editEvent($event_id)'>Edit</button>"; // Edit button
+                        echo "<button style='margin-right: 10px;' type='button' onclick='editEvent($event_id)'>Edit</button>"; // Edit button
                         echo "<form method='post' action='home.php' style='display:inline;'>";
-                        echo "<input type='hidden' name='event_id' value='" . $row['id'] . "'>";
-                        echo "<button style='color: white;' type='submit' onclick='return confirm(`Are you sure you want to delete this event?`)' name='delete_event'>Delete</button>";
+                        echo "<input style='margin-right: 10px;' type='hidden' name='event_id' value='" . $row['id'] . "'>";
+                        echo "<button style='margin-right: 10px;' style='color: white;' type='submit' onclick='return confirm(`Are you sure you want to delete this event?`)' name='delete_event'>Delete</button>";
                         echo "</form>";
-                        echo "</div>";
+                        // echo "</div>";
                     }
                 } else {
                     echo "<p>No events found.</p>";

@@ -53,6 +53,7 @@ INSERT INTO `admins` (`id`, `username`, `name`, `email`, `password`) VALUES
 CREATE TABLE `events` (
   `id` int(11) NOT NULL,
   `event_name` varchar(255) NOT NULL,
+  `event_details` varchar(255) NOT NULL,
   `event_date` date NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
