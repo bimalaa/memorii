@@ -3,6 +3,13 @@ include 'connection.php';
 session_start();
 
 $emailError = $passwordError = '';
+$successMessage = '';
+
+// Check if a success message exists
+if (isset($_SESSION['success_message'])) {
+    $successMessage = $_SESSION['success_message'];
+    unset($_SESSION['success_message']); // Remove message after displaying
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email']);
@@ -46,7 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,15 +64,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="container">
         <h1>Login</h1>
+
+        <!-- Display success message if available -->
+        <?php if (!empty($successMessage)): ?>
+            <div style="color: green; text-align: center;"><?php echo $successMessage; ?></div>
+        <?php endif; ?>
+
         <form method="post" action="">
-        <input type="email" name="email" placeholder="Email" value="<?php echo isset($email) ? $email : ''; ?>">
-        <div style="color: red;"><?php echo $emailError; ?></div>
+            <input type="email" name="email" placeholder="Email" value="<?php echo isset($email) ? $email : ''; ?>">
+            <div style="color: red;"><?php echo $emailError; ?></div>
 
-        <input type="password" name="password" placeholder="Password">
-        <div style="color: red;"><?php echo $passwordError; ?></div>
+            <input type="password" name="password" placeholder="Password">
+            <div style="color: red;"><?php echo $passwordError; ?></div>
 
-        <button type="submit">Login</button>
-    </form>
+            <button type="submit">Login</button>
+        </form>
         <p>Don't have an account? <a href="register.php">Register here</a>.</p>
     </div>
 </body>

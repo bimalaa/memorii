@@ -44,8 +44,9 @@ if (isset($_POST['delete_user'])) {
 }
 
 // Fetch all users
-$sql = "SELECT * FROM users ORDER BY id";
+$sql = "SELECT users.*, (SELECT COUNT(*) FROM events WHERE events.user_id = users.id) AS event_count FROM users ORDER BY id";
 $users = $conn->query($sql);
+
 
 // Fetch events for a specific user
 if (isset($_GET['view_events'])) {
@@ -76,8 +77,9 @@ if (isset($_POST['logout'])) {
         <ul>
             <li><a href="admin.php">Users</a></li>
             <li><a href="admin.php?action=add_admin">Add Admin</a></li>
+            <li><a href="login.php">User Login</a><li>
             <form method="post" action="" style="display:inline;">
-                <button type="submit" name="logout" style="background:none; border:none; color:blue; text-decoration:underline; cursor:pointer;">Logout</button>
+                <li><button class='submit-button' type="submit" name="logout"><a>Logout</a></button></li>         
             </form>
         </ul>
     </div>
@@ -103,40 +105,34 @@ if (isset($_POST['logout'])) {
         <?php } else { ?>
             <h1>Users</h1>
             <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php while ($user = $users->fetch_assoc()) { ?>
-                        <tr>
-                            <td><?php echo $user['id']; ?></td>
-                            <td><?php echo htmlspecialchars($user['name']); ?></td>
-                            <td><?php echo htmlspecialchars($user['email']); ?></td>
-                            <td>
-                                <a href="?view_events=<?php echo $user['id']; ?>">View Events</a>
-                                <form method="post" action="" style="display:inline;">
-                                    <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
-                                    <button type="submit" name="delete_user" style="background:none; border:none; color:red; text-decoration:underline; cursor:pointer;">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Event Count</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php while ($user = $users->fetch_assoc()) { ?>
+            <tr>
+                <td><?php echo $user['id']; ?></td>
+                <td><?php echo htmlspecialchars($user['name']); ?></td>
+                <td><?php echo htmlspecialchars($user['email']); ?></td>
+                <td><?php echo $user['event_count']; ?></td> <!-- Display event count -->
+                <td>
+                    <form method="post" action="" style="display:inline;">
+                        <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
+                        <button type="submit" name="delete_user" onclick="return confirm('Are you sure you want to delete?');" style="background:none; border:none; color:red; text-decoration:underline; cursor:pointer;">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        <?php } ?>
+    </tbody>
+</table>
+           
 
-            <?php if (isset($user_events)) { ?>
-                <h2>Events for User ID: <?php echo $selected_user_id; ?></h2>
-                <ul>
-                    <?php while ($event = $user_events->fetch_assoc()) { ?>
-                        <li><?php echo htmlspecialchars($event['event_name']) . " - " . htmlspecialchars($event['event_date']); ?></li>
-                    <?php } ?>
-                </ul>
-            <?php } ?>
         <?php } ?>
     </div>
 </body>

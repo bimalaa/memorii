@@ -1,5 +1,6 @@
 <?php
 include 'connection.php';
+session_start(); // Start session to store messages
 
 $nameError = $usernameError = $emailError = $passwordError = $confirmPasswordError = $numberError = '';
 
@@ -44,13 +45,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param("sssss", $name, $username, $email, $hashed_password, $number);
 
         if ($stmt->execute()) {
-            echo "<p style='color: green;'>Registration successful! <a href='login.php'>Login</a></p>";
+            $_SESSION['success_message'] = "Successfully registered. Now you can log in.";
+            header("Location: login.php");
+            exit;
         } else {
             echo "<p style='color: red;'>Error: " . $stmt->error . "</p>";
         }
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

@@ -7,14 +7,20 @@
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <div class="header">Memori - Event Reminder</div>
+<div class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background-color: #80000b; color: white;">
+    <div>Memori - Event Reminder</div>
+    <div>
+      <a href="login.php" style="color: white; text-decoration: none; margin-right: 10px;">Login</a>
+      <a href="register.php" style="color: white; text-decoration: none;">Register</a>
+    </div>
+  </div>
   <div class="container">
     <div class="calendar">
       <div class="calendar-header">
         <select id="year"></select>
         <select id="month"></select>
         <button id="prevMonth">&lt;</button>
-        <div id="currentMonthYear" style="font-size: 18px; font-weight: bold; color: #FFD700;"></div>
+        <div id="currentMonthYear" style="font-size: 18px; font-weight: bold; color: #80000b;"></div>
         <button id="nextMonth">&gt;</button>
       </div>
       <div class="calendar-grid" id="calendarGrid">
@@ -92,7 +98,7 @@
 
     const addEventAlert = () => {
       alert('Please register or log in to add an event.');
-      location.href = 'register.php';
+      location.href = 'login.php';
     };
 
     yearSelect.addEventListener('change', () => {

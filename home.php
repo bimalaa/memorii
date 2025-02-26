@@ -94,15 +94,15 @@ if (isset($_POST['logout'])) {
         <h1>Memori - Event Reminder</h1>
     </header>
     <nav>
+    <span>Welcome, <?php echo htmlspecialchars($user_name); ?>!</span>
         <a href="#">Home</a>
-        <a href="#">Contact Us</a>
-        <span>Welcome, <?php echo htmlspecialchars($user_name); ?>!</span>
+        <a href="contact.php">Contact Us</a>
+        
         <form method="post" action="" style="display:flex;">
-            <button type="submit" name="logout" style="background-color: #610000; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">
+            <button type="submit" name="logout" style="background-color: #1A535C;color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">
                 Logout
             </button>
         </form>
-        <a href="register.php">Login/Signup</a>
     </nav>
 
     <div id="alertBox">
@@ -112,7 +112,7 @@ if (isset($_POST['logout'])) {
     <div class="container">
         <div class="calendar-container">
             <div class="calendar-header">
-                <select id="yearSelect"></select>
+                <select id="yearSelect" default="2025"></select>
                 <select id="monthSelect">
                     <option value="0">January</option>
                     <option value="1">February</option>
@@ -128,7 +128,7 @@ if (isset($_POST['logout'])) {
                     <option value="11">December</option>
                 </select>
                 <button type="button" id="prevMonth">&lt;</button>
-                <span id="currentMonth"></span>
+                <span style="color: #1A535C;" id="currentMonth"></span>
                 <button type="button" id="nextMonth">&gt;</button>
             </div>
             <div class="calendar"></div>
@@ -136,9 +136,9 @@ if (isset($_POST['logout'])) {
 
         <div class="event-form-container">
             <form class="event-form" method="post" action="home.php">
-                <input type="text" name="event_name" placeholder="Event Name" autocomplete="off">
+                <input type="text" style="width:87%;" name="event_name" placeholder="Event Name" autocomplete="off">
                 <input type="hidden" id="event_date" name="event_date">
-                <button type="submit" name="add_event">Add Event</button>
+                <button style="width: 100%;" type="submit" name="add_event">Add Event</button>
             </form>
             <div class="message">
                 <?php
@@ -167,12 +167,12 @@ if (isset($_POST['logout'])) {
                         echo "<input type='hidden' name='event_id' value='" . $row['id'] . "'>";
                         echo "<input type='text' name='event_name' value='" . $row['event_name'] . "' required>";
                         echo "<input type='date' name='event_date' value='" . $row['event_date'] . "' required>";
-                        echo "<button type='submit' name='edit_event'>Save Changes</button>";
+                        echo "<button onclick='return confirm(`Are you sure you want to save changes?`);' type='submit' name='edit_event'>Save Changes</button>";
                         echo "</form>";
                         echo "<button type='button' onclick='editEvent($event_id)'>Edit</button>"; // Edit button
                         echo "<form method='post' action='home.php' style='display:inline;'>";
                         echo "<input type='hidden' name='event_id' value='" . $row['id'] . "'>";
-                        echo "<button type='submit' name='delete_event'>Delete</button>";
+                        echo "<button style='color: white;' type='submit' onclick='return confirm(`Are you sure you want to delete this event?`)' name='delete_event'>Delete</button>";
                         echo "</form>";
                         echo "</div>";
                     }
@@ -184,7 +184,16 @@ if (isset($_POST['logout'])) {
         </div>
     </div>
 
+    <footer style="background-color: #1A535C; color: white; text-align: center; padding: 20px; bottom: 0; width: 100%;">
+    <p>&copy; 2025 Memori - Event Reminder. All rights reserved.</p>
+    <p>Quick Navigation:  
+        <a href="home.php" style="color: #4ECDC4; text-decoration: none;">Home</a>, 
+        <a href="contact.php" style="color: #4ECDC4; text-decoration: none;">Contact</a>
+    </p>
+    </footer>
+
     <script>
+
         // JavaScript for Calendar Rendering
         function renderCalendar(year, month) {
             const calendar = document.querySelector('.calendar');
@@ -215,6 +224,7 @@ if (isset($_POST['logout'])) {
             for (let day = 1; day <= lastDate; day++) {
                 const dayDiv = document.createElement('div');
                 dayDiv.textContent = day;
+                dayDiv.classList.add('calendarDay');
                 dayDiv.onclick = function () {
                     document.querySelectorAll('.calendar div').forEach(div => div.classList.remove('selected'));
                     dayDiv.classList.add('selected');
@@ -304,12 +314,12 @@ if (isset($_POST['logout'])) {
 
         document.addEventListener('DOMContentLoaded', function () {
             <?php if ($delete_success) { ?>
-                alert("Event deleted successfully!");
                 window.location.href = "home.php";
             <?php } ?>
         });
 
         function editEvent(eventId) {
+
             // Hide all edit forms and show the selected one
             document.querySelectorAll('.event-item form').forEach(form => form.style.display = 'none');
             document.getElementById('edit-form-' + eventId).style.display = 'block';

@@ -1,115 +1,123 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #8B0000;
-    color: white;
-    margin: 0;
-    padding: 0;
-  }
+  font-family: Arial, sans-serif;
+  background-color: #e7f2e7;
+  color: #1A535C;
+  margin: 0;
+  padding: 0;
+}
 
-  .header {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #600000;
-    font-size: 24px;
-    font-weight: bold;
-  }
+.header {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #D63230;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
 
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 1000px;
-    background-color: #B22222;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
 
-  .calendar {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 1000px;
+  /* background-color: #4ECDC4; */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-  .calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 10px;
-    background-color: #600000;
-    border-radius: 8px;
-    margin-bottom: 20px;
-  }
+.calendar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .calendar-header select,
-  .calendar-header button {
-    background-color: #800000;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  /* background-color: #1A535C; */
+  border-radius: 8px;
+  margin-bottom: 20px;
+  color: white;
+}
 
-  .calendar-header button:hover {
-    background-color: #A52A2A;
-  }
+.calendar-header select,
+.calendar-header button {
+  /* background-color: #4ECDC4; */
+  color: #4f4f4f;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
 
-  .calendar-header select {
-    font-size: 14px;
-  }
+.calendar-header button:hover {
+  background-color: #80000b;
+  color: #4f4f4f;
+}
 
-  .calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-    width: 100%;
-    text-align: center;
-    background-color: #600000;
-    border-radius: 8px;
-    padding: 10px;
-  }
+.calendar-header select {
+  font-size: 14px;
+}
 
-  .weekday {
-    font-weight: bold;
-    color: #FFD700;
-    background-color: #800000;
-    padding: 10px;
-    border-radius: 4px;
-  }
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  width: 100%;
+  text-align: center;
+  /* background-color: #1A535C; */
+  border-radius: 8px;
+  padding: 10px;
+  color: white;
+}
 
-  .day {
-    padding: 15px;
-    font-size: 16px;
-    background-color: #A52A2A;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
+.weekday {
+  font-weight: bold;
+  color: #242424;
+  /* background-color: #4ECDC4; */
+  padding: 10px;
+  border-radius: 4px;
+}
 
-  .day:hover {
-    background-color: #FF4500;
-    color: black;
-    transform: scale(1.1);
-  }
+.day {
+  padding: 15px;
+  font-size: 16px;
+  /* background-color: #4ECDC4; */
+  color: #1A535C;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-  .add-event-btn {
-    background-color: #FF4500;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 20px;
-    align-self: center;
-  }
+.day:hover {
+  background-color: #80000b;
+  color: #c5dee1;
+  transform: scale(1.1);
+}
 
-  .add-event-btn:hover {
-    background-color: #FF6347;
-  }
+.add-event-btn {
+  background-color: #80000b;
+  color: #f0a7a6;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: color cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-duration: 300ms;
+  margin-top: 20px;
+  align-self: center;
+}
+
+.add-event-btn:hover {
+  background-color: #650000;
+  color: white;
+}

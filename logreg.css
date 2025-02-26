@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #8B0000; /* Dark red background */
-    color: white;
+    background-color: #f7fff7; 
+    color: black;
     margin: 0;
     padding: 0;
 }
@@ -9,7 +9,7 @@ body {
 .container {
     max-width: 400px;
     margin: 50px auto;
-    background-color: #610000; /* Slightly lighter red for contrast */
+    background-color: #d9e4d9; /* Slightly lighter red for contrast */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Added more box shadow for contrast */
@@ -44,33 +44,33 @@ input:focus, button:focus {
 }
 
 input {
-    background-color: #fff;
+    background-color: #f7fff7;
     color: #000;
     font-size: 16px;
 }
 
 button {
-    background-color: #B22222; /* Dark red button */
+    background-color: #1A535C; /* Dark red button */
     color: white;
     cursor: pointer;
     font-size: 16px;
+    transition: all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition-duration: 300ms;
 }
 
 button:hover {
-    background-color: #A52A2A; /* Slightly darker red on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Hover effect for buttons */
-    transform: scale(1.05); /* Button grows slightly on hover */
+    background-color: #13364b; /* Slightly darker red on hover */
 }
 
 p {
     text-align: center;
     font-size: 14px;
-    color: #FFD700; /* Gold color for text */
+    color: #1A535C; /* Gold color for text */
     margin-top: 15px;
 }
 
 a {
-    color: #FFD700; /* Gold color for links */
+    color: #1A535C; /* Gold color for links */
     text-decoration: none;
     font-weight: bold;
 }

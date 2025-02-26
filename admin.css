@@ -2,12 +2,13 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #8B0000;
-    color: white;
+    background-color: #f7fff7;
+    color: black;
 }
 
+/* Sidebar */
 .sidebar {
-    background-color: #610000;
+    background-color: #1A535C;
     width: 200px;
     height: 100vh;
     position: fixed;
@@ -37,18 +38,24 @@ body {
     font-size: 16px;
     display: block;
     padding: 10px;
-    background-color: #8B0000;
+    background-color: #257c7d;
     border-radius: 5px;
     text-align: center;
+    transition: background 0.3s ease;
 }
 
 .sidebar ul li a:hover {
-    background-color: #FF6347;
+    background-color: #123b5e;
 }
 
+/* Main Content */
 .content {
     margin-left: 220px;
     padding: 20px;
+}
+
+.submit-button {
+    min-width: 100%;
 }
 
 h1 {
@@ -56,33 +63,38 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* Table */
 table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #610000;
-    color: white;
+    background-color: #f7fff7;
+    color: #242424;
+    margin-left: 10px;
 }
 
-table th,
-table td {
+table th, table td {
     padding: 10px;
     text-align: center;
-    border: 1px solid #B22222;
+    border: 1px solid #257c7d;
 }
 
 table th {
-    background-color: #B22222;
+    background-color: #257c7d;
+    color: #f7fff7;
 }
 
+/* Links */
 a {
     color: #FF6347;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 a:hover {
     text-decoration: underline;
 }
 
+/* Form Button */
 form button {
     background-color: transparent;
     color: red;
@@ -91,39 +103,48 @@ form button {
     cursor: pointer;
 }
 
+/* Modal */
 .modal {
     display: block;
-    position: fixed;
+    position: fixed; /* Keeps modal centered even when scrolling */
     top: 50%;
-    left: 50%;
+    left: 56%;
     transform: translate(-50%, -50%);
     background-color: #610000;
     color: white;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    width: 320px;
+    text-align: center;
+    z-index: 1000; /* Ensures it appears above other content */
 }
 
+/* Form inside Modal */
 .modal-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 300px;
-    padding: 20px;
+    gap: 10px;
+    width: 100%;
 }
 
-.modal-content form input{
-    width: 100%;
-    margin: 10px;
-    padding:10px 10px 20px 20px;
-}
-.modal-content form button {
-    width: 100%;
-    margin: 10px;
+.modal-content form input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #B22222;
+    border-radius: 5px;
+    background-color: #410000;
+    color: white;
 }
 
+.modal-content form input:focus {
+    outline: none;
+    border-color: #FF6347;
+}
+
+/* Submit Button */
 .modal-content form button {
+    width: 100%;
     background-color: #B22222;
     color: white;
     border: none;
@@ -131,6 +152,7 @@ form button {
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 .modal-content form button:hover {

@@ -2,22 +2,31 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #8B0000;
-    color: white;
+    background-color: #f7fff7;
+    color: #1A535C;
+}
+
+.calendarDay {
+    cursor: pointer;
+    transition: all cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition-duration: 300ms;
+}
+
+.calendarDay:hover {
+    background-color: #4ECDC4;
 }
 
 header {
-    background-color: #610000;
+    background-color: #1A535C;
     color: white;
     padding: 10px 20px;
-    text-align: center;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #610000;
+    background-color: #1A535C;
     padding: 10px 20px;
 }
 
@@ -31,19 +40,23 @@ nav a:hover {
     text-decoration: underline;
 }
 
+.title {
+    text-align: center;
+    color: #242424
+}
+
 .container {
     display: flex;
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    background: #610000;
+    /* background: #4ECDC4; */
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .calendar-container {
     flex: 2;
-    background-color: #B22222;
+    /* background-color: #4ECDC4; */
     padding: 20px;
     border-radius: 5px;
 }
@@ -51,9 +64,13 @@ nav a:hover {
 .event-form-container {
     flex: 1;
     margin-left: 20px;
-    background-color: #610000;
+    background-color: #e4e4e4;
     padding: 20px;
     border-radius: 5px;
+}
+
+span {
+    color: white;
 }
 
 .calendar-header {
@@ -64,8 +81,8 @@ nav a:hover {
 }
 
 .calendar-header select {
-    background-color: #610000;
-    color: white;
+    /* background-color: #1A535C; */
+    color: black;
     border: none;
     padding: 10px;
     border-radius: 5px;
@@ -78,51 +95,51 @@ nav a:hover {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
-    color: white;
+    color: black;
 }
 
 .calendar div {
-    background-color: #610000;
+    /* background-color: #1A535C; */
     padding: 10px;
     text-align: center;
     border-radius: 5px;
 }
+
 
 .calendar div.header {
     font-weight: bold;
 }
 
 .calendar div.selected {
-    background-color: #8B0000;
+    background-color: #4ECDC4;
     color: white;
 }
 
 form input {
-    padding: 8px 15px; /* Reduced padding */
-    margin: 10px 10px; /* Reduced margin */
-    width: 80%; /* Reduced width */
+    padding: 8px 15px;
+    margin: 10px 10px;
+    width: 80%;
     border: none;
     border-radius: 5px;
     font-size: 14px;
 }
 
-form button {
+button {
     padding: 8px;
     margin: 10px 0;
-    width: 80%; /* Reduced width */
     border: none;
     border-radius: 5px;
     font-size: 14px;
 }
 
-form button {
-    background-color: #B22222;
-    color: white;
+button {
+    background-color: #1A535C;
+    color: #fafafa;
     cursor: pointer;
 }
 
 .message {
-    color:rgb(255, 255, 255);
+    color: #1A535C;
     text-align: center;
 }
 
@@ -131,21 +148,21 @@ form button {
 }
 
 .event-item {
-    background-color: #B22222;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
+    /* background-color: #4ECDC4; */
+    /* padding: 10px; */
+    /* margin: 10px 0; */
+    /* border-radius: 5px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Allow wrapping if the content is too long */
+    flex-wrap: wrap;
 }
 
 .event-name {
-    color: white;
+    color: #1A535C;
     padding: 10px 10px;
     flex: 1;
-    min-width: 0; /* Allow the name to shrink */
+    min-width: 0;
 }
 
 .event-item form {
@@ -158,18 +175,17 @@ form button {
 .event-item form input[type="text"],
 .event-item form input[type="date"] {
     margin-right: 10px;
-    width: 150px; /* Decrease width */
+    width: 150px;
     padding: 5px;
     font-size: 14px;
 }
 
 .event-item form button {
     padding: 5px 10px;
-    background-color:white;
-    color:black;
+    color: #1A535C;
     font-size: 14px;
-    margin:10px;
-    width: auto; /* Adjust the button width */
+    margin: 10px;
+    width: auto;
 }
 
 #alertBox {
@@ -178,8 +194,8 @@ form button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color:rgb(255, 255, 255);
-    color: #610000;
+    background-color: #FFE66D;
+    color: #1A535C;
     padding: 20px;
     border-radius: 5px;
     text-align: center;
@@ -189,7 +205,7 @@ form button {
 #alertBox button {
     margin-top: 10px;
     padding: 10px;
-    background-color: #610000;
+    background-color: #1A535C;
     color: white;
     border: none;
     border-radius: 5px;
