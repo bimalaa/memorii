@@ -50,7 +50,7 @@ input {
 }
 
 button {
-    background-color: #1A535C; /* Dark red button */
+    background-color: #80000b; /* Dark red button */
     color: white;
     cursor: pointer;
     font-size: 16px;
@@ -59,18 +59,18 @@ button {
 }
 
 button:hover {
-    background-color: #13364b; /* Slightly darker red on hover */
+    background-color: #6b0101; /* Slightly darker red on hover */
 }
 
 p {
     text-align: center;
     font-size: 14px;
-    color: #1A535C; /* Gold color for text */
+    color: #80000b; /* Gold color for text */
     margin-top: 15px;
 }
 
 a {
-    color: #1A535C; /* Gold color for links */
+    color: #80000b; /* Gold color for links */
     text-decoration: none;
     font-weight: bold;
 }

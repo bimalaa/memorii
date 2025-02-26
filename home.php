@@ -99,7 +99,7 @@ if (isset($_POST['logout'])) {
         <a href="contact.php">Contact Us</a>
         
         <form method="post" action="" style="display:flex;">
-            <button type="submit" name="logout" style="background-color: #1A535C;color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">
+            <button type="submit" name="logout" style="background-color: #80000b;color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">
                 Logout
             </button>
         </form>
@@ -184,11 +184,11 @@ if (isset($_POST['logout'])) {
         </div>
     </div>
 
-    <footer style="background-color: #1A535C; color: white; text-align: center; padding: 20px; bottom: 0; width: 100%;">
+    <footer style="background-color: #80000b; color: white; text-align: center; padding: 20px; bottom: 0; width: 100%;">
     <p>&copy; 2025 Memori - Event Reminder. All rights reserved.</p>
     <p>Quick Navigation:  
-        <a href="home.php" style="color: #4ECDC4; text-decoration: none;">Home</a>, 
-        <a href="contact.php" style="color: #4ECDC4; text-decoration: none;">Contact</a>
+        <a href="home.php" style="color:rgb(216, 96, 106); text-decoration: none;">Home</a>, 
+        <a href="contact.php" style="color: rgb(216, 96, 106); text-decoration: none;">Contact</a>
     </p>
     </footer>
 

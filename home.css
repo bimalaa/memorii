@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f7fff7;
-    color: #1A535C;
+    color: #80000b;
 }
 
 .calendarDay {
@@ -13,11 +13,11 @@ body {
 }
 
 .calendarDay:hover {
-    background-color: #4ECDC4;
+    background-color: #D63230;
 }
 
 header {
-    background-color: #1A535C;
+    background-color: #80000b;
     color: white;
     padding: 10px 20px;
 }
@@ -26,7 +26,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #1A535C;
+    background-color: #80000b;
     padding: 10px 20px;
 }
 
@@ -111,7 +111,7 @@ span {
 }
 
 .calendar div.selected {
-    background-color: #4ECDC4;
+    background-color: #D63230;
     color: white;
 }
 
@@ -133,13 +133,13 @@ button {
 }
 
 button {
-    background-color: #1A535C;
+    background-color: #80000b;
     color: #fafafa;
     cursor: pointer;
 }
 
 .message {
-    color: #1A535C;
+    color: #80000b;
     text-align: center;
 }
 
@@ -159,7 +159,7 @@ button {
 }
 
 .event-name {
-    color: #1A535C;
+    color: #80000b;
     padding: 10px 10px;
     flex: 1;
     min-width: 0;
@@ -195,7 +195,7 @@ button {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #FFE66D;
-    color: #1A535C;
+    color: #80000b;
     padding: 20px;
     border-radius: 5px;
     text-align: center;
@@ -205,7 +205,7 @@ button {
 #alertBox button {
     margin-top: 10px;
     padding: 10px;
-    background-color: #1A535C;
+    background-color: #80000b;
     color: white;
     border: none;
     border-radius: 5px;

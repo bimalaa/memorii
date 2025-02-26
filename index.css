@@ -98,7 +98,7 @@ body {
 }
 
 .day:hover {
-  background-color: #80000b;
+  background-color: #D63230;
   color: #c5dee1;
   transform: scale(1.1);
 }

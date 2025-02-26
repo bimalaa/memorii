@@ -8,7 +8,7 @@ body {
 
 /* Sidebar */
 .sidebar {
-    background-color: #1A535C;
+    background-color: #80000b;
     width: 200px;
     height: 100vh;
     position: fixed;
@@ -38,14 +38,14 @@ body {
     font-size: 16px;
     display: block;
     padding: 10px;
-    background-color: #257c7d;
+    background-color: #D63230;
     border-radius: 5px;
     text-align: center;
     transition: background 0.3s ease;
 }
 
 .sidebar ul li a:hover {
-    background-color: #123b5e;
+    background-color: #ec7352;
 }
 
 /* Main Content */
@@ -75,11 +75,11 @@ table {
 table th, table td {
     padding: 10px;
     text-align: center;
-    border: 1px solid #257c7d;
+    border: 1px solid #80000b;
 }
 
 table th {
-    background-color: #257c7d;
+    background-color: #80000b;
     color: #f7fff7;
 }
 
@@ -110,7 +110,7 @@ form button {
     top: 50%;
     left: 56%;
     transform: translate(-50%, -50%);
-    background-color: #610000;
+    background-color: #80000b;
     color: white;
     padding: 20px;
     border-radius: 8px;
@@ -135,6 +135,7 @@ form button {
     border-radius: 5px;
     background-color: #410000;
     color: white;
+    margin-bottom: 10px;
 }
 
 .modal-content form input:focus {

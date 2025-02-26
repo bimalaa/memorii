@@ -57,7 +57,7 @@ form input:focus {
 
 form button {
     padding: 12px;
-    background-color: #1A535C;
+    background-color: #80000b;
     color: white;
     border: none;
     border-radius: 5px;
@@ -68,7 +68,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #15334f;
+    background-color: #650404;
 }
 
 .error-message {
