@@ -1,18 +1,22 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f2eae7;
   color: #1A535C;
   margin: 0;
   padding: 0;
+  background-color: #fffdfd;
 }
 
 .header {
-  text-align: center;
-  padding: 10px 0;
-  background-color: #D63230;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  background-color: #650000;
   color: white;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 
@@ -23,9 +27,11 @@ body {
   margin: 20px auto;
   padding: 20px;
   max-width: 1000px;
-  /* background-color: #4ECDC4; */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #650000;
+  color: white;
+
 }
 
 .calendar {
@@ -33,18 +39,19 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 .calendar-header {
   display: flex;
-  justify-content: space-between;
+  gap: 25%;
   align-items: center;
   width: 100%;
-  padding: 10px;
-  /* background-color: #1A535C; */
+  padding:10px;
+  padding-left: 85px;
   border-radius: 8px;
   margin-bottom: 20px;
-  color: white;
+ 
 }
 
 .calendar-header select,
@@ -76,12 +83,12 @@ body {
   /* background-color: #1A535C; */
   border-radius: 8px;
   padding: 10px;
-  color: white;
+  
 }
 
 .weekday {
   font-weight: bold;
-  color: #242424;
+  color: white;
   /* background-color: #4ECDC4; */
   padding: 10px;
   border-radius: 4px;
@@ -91,7 +98,7 @@ body {
   padding: 15px;
   font-size: 16px;
   /* background-color: #4ECDC4; */
-  color: #1A535C;
+  color: white;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -104,7 +111,7 @@ body {
 }
 
 .add-event-btn {
-  background-color: #80000b;
+  background-color: white;
   color: #f0a7a6;
   border: none;
   padding: 10px 20px;

@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-<div class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background-color: #80000b; color: white;">
+<div class="header">
     <div>Memori - Event Reminder</div>
     <div>
       <a href="login.php" style="color: white; text-decoration: none; margin-right: 10px;">Login</a>
@@ -19,9 +19,12 @@
       <div class="calendar-header">
         <select id="year"></select>
         <select id="month"></select>
+        <div style="display:flex; justify-content:center; align-items: center; gap: 15px;">
         <button id="prevMonth">&lt;</button>
-        <div id="currentMonthYear" style="font-size: 18px; font-weight: bold; color: #80000b;"></div>
+        <div id="currentMonthYear" style="font-size: 18px; font-weight: bold;"></div>
         <button id="nextMonth">&gt;</button>
+        </div>
+       
       </div>
       <div class="calendar-grid" id="calendarGrid">
         <!-- Weekdays -->
