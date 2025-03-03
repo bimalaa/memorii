@@ -46,18 +46,19 @@ body {
   display: flex;
   gap: 25%;
   align-items: center;
-  width: 100%;
+  width: 90%;
   padding:10px;
   padding-left: 85px;
   border-radius: 8px;
   margin-bottom: 20px;
- 
+  background-color: white !important;
+  color: #650000;
 }
 
 .calendar-header select,
 .calendar-header button {
   /* background-color: #4ECDC4; */
-  color: #4f4f4f;
+  color:#650000;
   border: none;
   padding: 8px 12px;
   border-radius: 5px;
@@ -105,14 +106,14 @@ body {
 }
 
 .day:hover {
-  background-color: #D63230;
+  background-color: white;
   color: #c5dee1;
   transform: scale(1.1);
 }
 
 .add-event-btn {
   background-color: white;
-  color: #f0a7a6;
+ 
   border: none;
   padding: 10px 20px;
   font-size: 16px;
@@ -125,6 +126,5 @@ body {
 }
 
 .add-event-btn:hover {
-  background-color: #650000;
-  color: white;
+  color:#650000;
 }

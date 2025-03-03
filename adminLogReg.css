@@ -2,15 +2,15 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #381812;
+    background-color:#650404;
     color: rgb(53, 19, 19);
 }
 
 .container {
     max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #d9e4d9;
+    margin: 120px auto;
+    padding: 30px;
+    background-color: white !important;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
@@ -23,7 +23,7 @@ h2 {
 }
 
 .form-box {
-    background-color: #d9e4d9;
+    background-color: white !important;
     padding: 20px;
     border-radius: 10px;
 }
@@ -44,7 +44,7 @@ form input {
     border: none;
     border-radius: 5px;
     font-size: 14px;
-    background-color: #FFFAFA;
+    background-color: rgb(239, 230, 230);
     color: #292929;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.3s ease-in-out;
@@ -65,6 +65,7 @@ form button {
     font-size: 16px;
     text-align: center;
     transition: background-color 0.3s ease;
+    margin-top: 15px;
 }
 
 form button:hover {

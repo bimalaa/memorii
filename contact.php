@@ -41,8 +41,10 @@ if (isset($_POST['logout'])) {
     <title>Contact</title>
     <link rel="stylesheet" href="home.css">
 </head>
-<body>
-<header>
+<body style="width: 100%; margin: 0px; padding: 0px; height: 100vh;">
+
+    <div>
+    <header>
         <h1>Memori - Event Reminder</h1>
     </header>
     <nav>
@@ -51,20 +53,30 @@ if (isset($_POST['logout'])) {
         <a href="#">Contact Us</a>
         
         <form method="post" action="" style="display:flex;">
-            <button type="submit" name="logout" style="background-color: #80000b;color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">
+            <button type="submit" name="logout" style="background-color: #80000b;color: white; border: none; padding: 0px 10px; border-radius: 5px; font-size:16px; cursor: pointer;">
                 Logout
             </button>
         </form>
     </nav>
-        <h1 class="title">Contact Us</h1>
+    </div>
+
+
+    <div style="padding-top: 100px; padding-bottom:100; ">
+    <h1 class="title">Contact Us</h1>
         <p class="title">9879976557</p>
         <p class="title">support@memori.com.np</p>
-        <footer style="background-color: #80000b; color: white; text-align: center; padding: 20px; bottom: 0; width: 100%; margin-top: 230px;">
+    </div>
+    
+
+    <div>
+    <footer style="background-color: #80000b; color: white; text-align: center; padding: 30px; margin-top: 130px;" >
     <p>&copy; 2025 Memori - Event Reminder. All rights reserved.</p>
     <p>Quick Navigation:  
         <a href="home.php" style="color: rgb(216, 96, 106); text-decoration: none;">Home</a>, 
         <a href="contact.php" style="color: rgb(216, 96, 106); text-decoration: none;">Contact</a>
     </p>
     </footer>
+    </div>
+   
 </body>
 </html>

@@ -100,7 +100,7 @@ if (isset($_POST['logout'])) {
         <a href="contact.php">Contact Us</a>
         
         <form method="post" action="" style="display:flex;">
-            <button type="submit" name="logout" style="background-color: #80000b;color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">
+            <button type="submit" name="logout" style="background-color: #80000b;color: white; border: none;  border-radius: 5px; cursor: pointer; font-size:16px;">
                 Logout
             </button>
         </form>
@@ -129,7 +129,7 @@ if (isset($_POST['logout'])) {
                     <option value="11">December</option>
                 </select>
                 <button type="button" id="prevMonth">&lt;</button>
-                <span style="color: #1A535C;" id="currentMonth"></span>
+                <span style="color: #80000b" id="currentMonth"></span>
                 <button type="button" id="nextMonth">&gt;</button>
             </div>
             <div class="calendar"></div>
@@ -140,7 +140,7 @@ if (isset($_POST['logout'])) {
                 <input type="text" style="width:87%;" name="event_name" placeholder="Event Name" autocomplete="off"><br>
                 <input type="text" style="width:87%;" name="event_details" placeholder="Event Details" autocomplete="off">
                 <input type="hidden" id="event_date" name="event_date">
-                <button style="width: 100%;" type="submit" name="add_event">Add Event</button>
+                <button style="width: 80%; margin-left: 35px;"  type="submit" name="add_event">Add Event</button>
             </form>
             <div class="message">
                 <?php
@@ -188,7 +188,7 @@ if (isset($_POST['logout'])) {
         </div>
     </div>
 
-    <footer style="background-color: #80000b; color: white; text-align: center; padding: 20px; bottom: 0; width: 100%;">
+    <footer style="background-color: #80000b; color: white; text-align: center; padding-top:20px; padding-bottom: 20px; ">
     <p>&copy; 2025 Memori - Event Reminder. All rights reserved.</p>
     <p>Quick Navigation:  
         <a href="home.php" style="color:rgb(216, 96, 106); text-decoration: none;">Home</a>, 

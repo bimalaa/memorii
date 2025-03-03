@@ -1,9 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f7fff7;
+  
+    background-color: white;
     color: #80000b;
+    width: 99%
 }
 
 .calendarDay {
@@ -19,7 +19,7 @@ body {
 header {
     background-color: #80000b;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 40px;
 }
 
 nav {
@@ -27,7 +27,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     background-color: #80000b;
-    padding: 10px 20px;
+    padding: 0px 40px;
 }
 
 nav a {
@@ -50,7 +50,7 @@ nav a:hover {
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    /* background: #4ECDC4; */
+    background-color: white;
     border-radius: 5px;
 }
 
@@ -82,7 +82,7 @@ span {
 
 .calendar-header select {
     /* background-color: #1A535C; */
-    color: black;
+    color:#80000b;
     border: none;
     padding: 10px;
     border-radius: 5px;
@@ -160,7 +160,7 @@ button {
 
 .event-name {
     color: #80000b;
-    padding: 10px 10px;
+    padding: 10px 2px;
     flex: 1;
     min-width: 0;
 }
