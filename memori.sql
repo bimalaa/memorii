@@ -62,15 +62,15 @@ CREATE TABLE `events` (
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`id`, `event_name`, `event_date`, `user_id`) VALUES
-(28, 'hiii', '2025-01-04', 0),
-(29, 'hellooo', '2025-01-04', 0),
-(30, 'dance', '2025-01-10', 0),
-(38, 'New Event', '2025-01-16', 6),
-(41, 'sarad bday', '2025-01-09', 5),
-(44, 'osiyan bday ', '2025-02-10', 5),
-(46, 'dayyy', '2025-02-13', 5),
-(47, 'partyyy', '2025-01-04', 7);
+INSERT INTO `events` (`id`, `event_name`, `event_details`, `event_date`, `user_id`) VALUES
+(28, 'hiii', 'EVENT DETAIL1', '2025-01-04', 0),
+(29, 'hellooo', 'EVENT DETAIL1', '2025-01-04', 0),
+(30, 'dance', 'EVENT DETAIL1', '2025-01-10', 0),
+(38, 'New Event', 'EVENT DETAIL1', '2025-01-16', 6),
+(41, 'sarad bday', 'EVENT DETAIL1', '2025-01-09', 5),
+(44, 'osiyan bday ', 'EVENT DETAIL1', '2025-02-10', 5),
+(46, 'dayyy', 'EVENT DETAIL1', '2025-02-13', 5),
+(47, 'partyyy', 'EVENT DETAIL1', '2025-01-04', 7);
 
 -- --------------------------------------------------------
 

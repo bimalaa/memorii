@@ -33,8 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $confirmPasswordError = "Passwords do not match.";
     }
 
-    if (!preg_match('/^[0-9]{10}$/', $number)) {
-        $numberError = "Phone number must be 10 digits.";
+    if (!preg_match('/^(97|98)[0-9]{8}$/', $number)) {
+        $numberError = "Phone number must be 10 digits and must be valid.";
     }
 
     // If no errors, insert data into the database
