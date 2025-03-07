@@ -12,31 +12,31 @@ if (!isset($_SESSION['admin_id'])) {
 
 $admin_id = $_SESSION['admin_id'];
 
-// Add new admin
-if (isset($_POST['add_admin'])) {
-    $admin_name = $_POST['admin_name'];
-    $admin_username = $_POST['admin_username'];
-    $admin_email = $_POST['admin_email'];
-    $admin_password = md5($_POST['admin_password']);
+// // Add new admin
+// if (isset($_POST['add_admin'])) {
+//     $admin_name = $_POST['admin_name'];
+//     $admin_username = $_POST['admin_username'];
+//     $admin_email = $_POST['admin_email'];
+//     $admin_password = md5($_POST['admin_password']);
 
-    $sql = "INSERT INTO admins (name, username, email, password) VALUES ('$admin_name', '$admin_username', '$admin_email', '$admin_password')";
-    if ($conn->query($sql) === TRUE) {
-        $message = "Admin added successfully!";
-    } else {
-        $message = "Error: " . $conn->error;
-    }
-}
+//     $sql = "INSERT INTO admins (name, username, email, password) VALUES ('$admin_name', '$admin_username', '$admin_email', '$admin_password')";
+//     if ($conn->query($sql) === TRUE) {
+//         $message = "Admin added successfully!";
+//     } else {
+//         $message = "Error: " . $conn->error;
+//     }
+// }
 
-if (isset($_POST['delete_admin'])) {
-    $admin_id = $_POST['admin_id'];
+// if (isset($_POST['delete_admin'])) {
+//     $admin_id = $_POST['admin_id'];
 
-    $sql = "DELETE FROM admins WHERE id = $admin_id";
-    if ($conn->query($sql) === TRUE) {
-        $message = "Admin Deleted Successfully!";
-    } else {
-        $message = "Error: " . $conn->error;
-    }
-}
+//     $sql = "DELETE FROM admins WHERE id = $admin_id";
+//     if ($conn->query($sql) === TRUE) {
+//         $message = "Admin Deleted Successfully!";
+//     } else {
+//         $message = "Error: " . $conn->error;
+//     }
+// }
 
 // Delete user
 if (isset($_POST['delete_user'])) {
@@ -86,8 +86,6 @@ if (isset($_POST['logout'])) {
         <h2>Admin Dashboard</h2>
         <ul>
             <li><a href="admin.php">Users</a></li>
-            <li><a href="admin.php?action=add_admin">Add Admin</a></li>
-            <li><a href="admin.php?action=view_admin">View All Admins</a></li>
             <li><a href="login.php">User Login</a><li>
             <form method="post" action="" style="display:inline;">
                 <li><button class='submit-button' type="submit" name="logout"><a>Logout</a></button></li>         
@@ -100,54 +98,6 @@ if (isset($_POST['logout'])) {
             <div class="message"><?php echo htmlspecialchars($message); ?></div>
         <?php } ?>
 
-        <?php if (isset($_GET['action']) && $_GET['action'] === 'add_admin') { ?>
-            <div class="modal" id="addAdminModal">
-        <div class="modal-content">
-            <h1>Add Admin</h1>
-            <form method="post" action="">
-                <input type="text" name="admin_name" placeholder="Admin Name" required>
-                <input type="text" name="admin_username" placeholder="Admin Username" required>
-                <input type="email" name="admin_email" placeholder="Admin Email" required>
-                <input type="password" name="admin_password" placeholder="Admin Password" required>
-                <button type="submit" name="add_admin">Add Admin</button>
-            </form>
-        </div>
-    </div>
-    <?php
-} else if (isset($_GET['action']) && $_GET['action'] === 'view_admin') { 
-    // Fetch all admins
-    $admin_query = "SELECT id, name, username, email FROM admins ORDER BY id";
-    $admins = $conn->query($admin_query);
-?>
-    <h1>Admins</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Actions</th> <!-- Added Actions column -->
-            </tr>
-        </thead>
-        <tbody>
-            <?php while ($admin = $admins->fetch_assoc()) { ?>
-                <tr>
-                    <td><?php echo $admin['id']; ?></td>
-                    <td><?php echo htmlspecialchars($admin['name']); ?></td>
-                    <td><?php echo htmlspecialchars($admin['username']); ?></td>
-                    <td><?php echo htmlspecialchars($admin['email']); ?></td>
-                    <td>
-                        <form method="post" action="" style="display:inline;">
-                            <input type="hidden" name="admin_id" value="<?php echo $admin['id']; ?>">
-                            <button type="submit" name="delete_admin" onclick="return confirm('Are you sure you want to delete this admin?');" style="background:none; border:none; color:red; text-decoration:underline; cursor:pointer;">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table>
-        <?php } else { ?>
             <h1>Users</h1>
             <table>
     <thead>
@@ -177,8 +127,6 @@ if (isset($_POST['logout'])) {
     </tbody>
 </table>
            
-
-        <?php } ?>
     </div>
 </body>
 </html>
