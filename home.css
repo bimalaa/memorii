@@ -123,6 +123,15 @@ form input {
     border-radius: 5px;
     font-size: 14px;
 }
+form textarea {
+    padding: 8px 15px;
+    margin: 10px 10px;
+    width: 80%;
+    border: none;
+    border-radius: 5px;
+    font-family: Arial;
+    font-size: 14px;
+}
 
 button {
     padding: 8px;

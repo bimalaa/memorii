@@ -138,7 +138,7 @@ if (isset($_POST['logout'])) {
         <div class="event-form-container">
             <form class="event-form" method="post" action="home.php">
                 <input type="text" style="width:87%;" name="event_name" placeholder="Event Name" autocomplete="off"><br>
-                <input type="text" style="width:87%;" name="event_details" placeholder="Event Details" autocomplete="off">
+                <textarea style="width:87%;" name="event_details" placeholder="Event Details" autocomplete="off"></textarea>
                 <input type="hidden" id="event_date" name="event_date">
                 <button style="width: 80%; margin-left: 35px;"  type="submit" name="add_event">Add Event</button>
             </form>
